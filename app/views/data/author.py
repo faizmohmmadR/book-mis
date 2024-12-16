@@ -5,7 +5,7 @@ from app.forms.forms import AuthorForm, PublisherForm, GenreForm, BookForm, Revi
 # Author Views
 def author_list(request):
     authors = Author.objects.all()
-    return render(request, 'library/author_list.html', {'authors': authors})
+    return render(request, 'app/author/author_list.html', {'authors': authors})
 
 def author_create(request):
     if request.method == 'POST':
