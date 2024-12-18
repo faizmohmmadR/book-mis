@@ -15,6 +15,7 @@
                         <div class="border-bottom mb-3">
                             <h5>{{ review.book.title }} - {{ review.rating }} Stars</h5>
                             <p><strong>{{ review.reviewer_name }}</strong>: {{ review.comment }}</p>
+                            <a href="{% url 'review_update' review.pk %}" class="btn btn-warning btn-sm">Edit</a>
                             <a href="{% url 'review_delete' review.pk %}" class="btn btn-danger btn-sm">Delete</a>
                         </div>
                     {% empty %}

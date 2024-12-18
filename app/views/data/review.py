@@ -1,17 +1,23 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from app.models.data.models import  Review
 from app.forms.forms import  ReviewForm
+from django.contrib import messages
+
 
 # Review Views
 def review_list(request):
     reviews = Review.objects.all()
     return render(request, 'app/review/review_list.html', {'reviews': reviews})
 
+# views.py
+
+
 def review_create(request):
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Review added successfully!')
             return redirect('review_list')
     else:
         form = ReviewForm()
@@ -23,10 +29,12 @@ def review_update(request, pk):
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Review updated successfully!')
             return redirect('review_list')
     else:
         form = ReviewForm(instance=review)
     return render(request, 'app/review/review_form.html', {'form': form})
+
 
 def review_delete(request, pk):
     review = get_object_or_404(Review, pk=pk)

@@ -54,7 +54,7 @@ class ReviewForm(forms.ModelForm):
         fields = ['book', 'reviewer_name', 'rating', 'comment']
         widgets = {
             'book': forms.Select(attrs={'class': 'form-control'}),
-            'reviewer_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Name'}),
+            'reviewer_name': forms.TextInput(attrs={'class': 'form-control'}),
             'rating': forms.Select(attrs={'class': 'form-control'}),
-            'comment': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Write your review here...'}),
+            'comment': forms.Textarea(attrs={'class': 'form-control'}),
         }
