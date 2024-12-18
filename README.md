@@ -91,10 +91,9 @@ Replace your username with your GitHub username.
     python manage.py createsuperuser
 
     ```
+    
 
-## Running the Server
-
-    To start the development server, run the following command:
+    To start the development server, run the following command
 
     ```bash
     python manage.py runserver
