@@ -15,7 +15,7 @@ def author_create(request):
             return redirect('author_list')
     else:
         form = AuthorForm()
-    return render(request, 'library/author_form.html', {'form': form})
+    return render(request, 'app/author/author_form.html', {'form': form})
 
 def author_update(request, pk):
     author = get_object_or_404(Author, pk=pk)
@@ -26,12 +26,12 @@ def author_update(request, pk):
             return redirect('author_list')
     else:
         form = AuthorForm(instance=author)
-    return render(request, 'library/author_form.html', {'form': form})
+    return render(request, 'app/author/author_form.html', {'form': form})
 
 def author_delete(request, pk):
     author = get_object_or_404(Author, pk=pk)
     if request.method == 'POST':
         author.delete()
         return redirect('author_list')
-    return render(request, 'library/author_confirm_delete.html', {'author': author})
+    return render(request, 'app/author/author_confirm_delete.html', {'author': author})
 

@@ -1,0 +1,30 @@
+<!-- app/templates/app/genre/genre_list.html -->
+{% extends 'base.html' %} 
+{% block title %}Genre List{% endblock %} 
+{% block content %}
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Genres</h1>
+  <a href="{% url 'genre_create' %}" class="btn btn-primary mb-3">Add Genre</a>
+  <table class="table table-bordered table-custom">  <!-- Applied custom class -->
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for genre in genres %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ genre.name }}</td>
+        <td>
+          <a href="{% url 'genre_update' genre.pk %}" class="btn btn-warning btn-sm">Edit</a>
+          <a href="{% url 'genre_delete' genre.pk %}" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

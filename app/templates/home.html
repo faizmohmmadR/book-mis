@@ -1,0 +1,130 @@
+{% extends 'base.html' %} {% block title %}Home - Book Management System{% endblock %} {% block content %}
+<div class="hero bg-primary text-white text-center py-5">
+  <h1 class="display-4 fw-bold">Welcome to the Book Management System</h1>
+  <p class="lead mt-3">
+    Effortlessly manage authors, publishers, genres, and books in one place.
+  </p>
+  <a
+    class="btn btn-outline-light btn-lg mt-4"
+    href="{% url 'author_list' %}"
+    role="button"
+    >Get Started</a
+  >
+</div>
+
+<div class="container mt-5">
+  <h2 class="text-center mb-5 fw-bold">Key Features</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card shadow-sm h-100">
+        <img
+          src="https://via.placeholder.com/300x200"
+          class="card-img-top"
+          alt="Manage Authors"
+        />
+        <div class="card-body text-center">
+          <h5 class="card-title">Manage Authors</h5>
+          <p class="card-text">
+            Add, edit, and delete authors to keep your records organized.
+          </p>
+          <a href="{% url 'author_list' %}" class="btn btn-primary"
+            >View Authors</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm h-100">
+        <img
+          src="https://via.placeholder.com/300x200"
+          class="card-img-top"
+          alt="Manage Publishers"
+        />
+        <div class="card-body text-center">
+          <h5 class="card-title">Manage Publishers</h5>
+          <p class="card-text">
+            Easily manage your publishers and their details.
+          </p>
+          <a href="{% url 'publisher_list' %}" class="btn btn-primary"
+            >View Publishers</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm h-100">
+        <img
+          src="https://via.placeholder.com/300x200"
+          class="card-img-top"
+          alt="Manage Books"
+        />
+        <div class="card-body text-center">
+          <h5 class="card-title">Manage Books</h5>
+          <p class="card-text">
+            Keep track of your book collections and details.
+          </p>
+          <a href="{% url 'book_list' %}" class="btn btn-primary">View Books</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4 fw-bold">Why Choose Us?</h2>
+  <div class="row text-center">
+    <div class="col-md-4">
+      <div class="p-4">
+        <i class="bi bi-speedometer2 display-4 text-primary"></i>
+        <h5 class="mt-3">Fast and Reliable</h5>
+        <p>Optimized for speed, ensuring quick access to all your data.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="p-4">
+        <i class="bi bi-shield-check display-4 text-primary"></i>
+        <h5 class="mt-3">Secure and Safe</h5>
+        <p>Advanced security measures protect your data at all times.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="p-4">
+        <i class="bi bi-people display-4 text-primary"></i>
+        <h5 class="mt-3">User-Friendly</h5>
+        <p>An intuitive interface designed for simplicity and efficiency.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-light text-center text-lg-start mt-5 py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase fw-bold">About Us</h5>
+        <p class="text-muted">
+          Book Management System simplifies managing your books, authors, and
+          publishers. Experience seamless data management with our platform.
+        </p>
+      </div>
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase fw-bold">Contact Us</h5>
+        <ul class="list-unstyled">
+          <li>
+            Email:
+            <a
+              href="mailto:support@bookmanagement.com"
+              class="text-decoration-none"
+              >support@bookmanagement.com</a
+            >
+          </li>
+          <li>Phone: +93 77 8587 455</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="text-center py-3 bg-secondary text-white">
+    &copy; 2024 Book Management System | All rights reserved.
+  </div>
+</footer>
+{% endblock %}

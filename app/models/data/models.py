@@ -23,7 +23,17 @@ class Genre(DataRoot):
     def __str__(self):
         return self.name
 
+
 class Book(DataRoot):
+    LANGUAGES = [
+        ('en', 'English'),
+        ('es', 'Spanish'),
+        ('fr', 'French'),
+        ('de', 'German'),
+        ('zh', 'Chinese'),
+        ('fs', 'Farsi'),
+    ]
+
     title = models.CharField(max_length=200)
     authors = models.ManyToManyField(Author)
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
@@ -31,16 +41,25 @@ class Book(DataRoot):
     isbn = models.CharField(max_length=13, unique=True)
     page_count = models.PositiveIntegerField()
     cover_image = models.ImageField(upload_to='covers/', blank=True, null=True)
-    language = models.CharField(max_length=30)
+    language = models.CharField(max_length=2, choices=LANGUAGES)
     genres = models.ManyToManyField(Genre)
 
     def __str__(self):
         return self.title
 
+
 class Review(DataRoot):
+    RATING_CHOICES = [
+        (1, '1 Star'),
+        (2, '2 Stars'),
+        (3, '3 Stars'),
+        (4, '4 Stars'),
+        (5, '5 Stars'),
+    ]
+
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     reviewer_name = models.CharField(max_length=100)
-    rating = models.PositiveIntegerField(default=1) 
+    rating = models.PositiveIntegerField(choices=RATING_CHOICES, default=1)
     comment = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 

@@ -1,0 +1,136 @@
+<!-- app/templates/app/book/book_form.html -->
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}Add Book{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Add Book</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Book Details</h5>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{% url 'book_create' %}" enctype="multipart/form-data" novalidate>
+                        {% csrf_token %}
+                        
+                        <div class="form-group">
+                            <label for="id_title">Title</label>
+                            {{ form.title }}
+                            {% if form.title.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.title.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="id_authors">Authors</label>
+                            {{ form.authors }}
+                            {% if form.authors.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.authors.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="id_publisher">Publisher</label>
+                            {{ form.publisher }}
+                            {% if form.publisher.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.publisher.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="id_published_date">Published Date</label>
+                            {{ form.published_date }}
+                            {% if form.published_date.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.published_date.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="id_isbn">ISBN</label>
+                            {{ form.isbn }}
+                            {% if form.isbn.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.isbn.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="id_page_count">Page Count</label>
+                            {{ form.page_count }}
+                            {% if form.page_count.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.page_count.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="id_language">Language</label>
+                            {{ form.language }}
+                            {% if form.language.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.language.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="id_genres">Genres</label>
+                            {{ form.genres }}  <!-- Added genres field here -->
+                            {% if form.genres.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.genres.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="id_cover_image">Cover Image</label>
+                            {{ form.cover_image }}
+                            {% if form.cover_image.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.cover_image.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Save Book</button>
+                        <a href="{% url 'book_list' %}" class="btn btn-secondary">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

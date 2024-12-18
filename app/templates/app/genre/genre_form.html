@@ -1,0 +1,16 @@
+<!-- app/templates/app/genre/genre_form.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ form.instance.pk|yesno:"Edit Genre,Add Genre" }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">{{ form.instance.pk|yesno:"Edit Genre,Add Genre" }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="{% url 'genre_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

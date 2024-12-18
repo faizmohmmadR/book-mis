@@ -5,7 +5,7 @@ from app.forms.forms import PublisherForm
 # Publisher Views
 def publisher_list(request):
     publishers = Publisher.objects.all()
-    return render(request, 'library/publisher_list.html', {'publishers': publishers})
+    return render(request, 'app/publisher/publisher_list.html', {'publishers': publishers})
 
 def publisher_create(request):
     if request.method == 'POST':
@@ -15,7 +15,7 @@ def publisher_create(request):
             return redirect('publisher_list')
     else:
         form = PublisherForm()
-    return render(request, 'library/publisher_form.html', {'form': form})
+    return render(request, 'app/publisher/publisher_form.html', {'form': form})
 
 def publisher_update(request, pk):
     publisher = get_object_or_404(Publisher, pk=pk)
@@ -26,11 +26,11 @@ def publisher_update(request, pk):
             return redirect('publisher_list')
     else:
         form = PublisherForm(instance=publisher)
-    return render(request, 'library/publisher_form.html', {'form': form})
+    return render(request, 'app/publisher/publisher_form.html', {'form': form})
 
 def publisher_delete(request, pk):
     publisher = get_object_or_404(Publisher, pk=pk)
     if request.method == 'POST':
         publisher.delete()
         return redirect('publisher_list')
-    return render(request, 'library/publisher_confirm_delete.html', {'publisher': publisher})
+    return render(request, 'app/publisher/publisher_confirm_delete.html', {'publisher': publisher})

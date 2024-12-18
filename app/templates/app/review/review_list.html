@@ -1,0 +1,28 @@
+<!-- review_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Review List{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Reviews</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <a href="{% url 'review_create' %}" class="btn btn-primary mb-3">Add Review</a>
+            <div class="card">
+                <div class="card-body">
+                    {% for review in reviews %}
+                        <div class="border-bottom mb-3">
+                            <h5>{{ review.book.title }} - {{ review.rating }} Stars</h5>
+                            <p><strong>{{ review.reviewer_name }}</strong>: {{ review.comment }}</p>
+                            <a href="{% url 'review_delete' review.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                        </div>
+                    {% empty %}
+                        <p>No reviews available.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
