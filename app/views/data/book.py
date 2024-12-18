@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from app.models.data.models import Author, Publisher, Genre, Book, Review
 from app.forms.forms import AuthorForm, PublisherForm, GenreForm, BookForm, ReviewForm
-
+from django.contrib import messages
 
 
 # Genre Views
@@ -38,33 +38,35 @@ def genre_delete(request, pk):
     return render(request, 'app/genre/genre_confirm_delete.html', {'genre': genre})
 
 # Book Views
+
+
 def book_list(request):
     books = Book.objects.all()
     return render(request, 'app/book/book_list.html', {'books': books})
-
-
 
 def book_create(request):
     if request.method == 'POST':
         form = BookForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Book added successfully!')
             return redirect('book_list')
         else:
             print(form.errors)  # Debugging line to see any validation errors
     else:
         form = BookForm()
-    
     return render(request, 'app/book/book_form.html', {'form': form})
 
-    
 def book_update(request, pk):
     book = get_object_or_404(Book, pk=pk)
     if request.method == 'POST':
         form = BookForm(request.POST, request.FILES, instance=book)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Book updated successfully!')
             return redirect('book_list')
+        else:
+            print(form.errors)  # Debugging line to see any validation errors
     else:
         form = BookForm(instance=book)
     return render(request, 'app/book/book_form.html', {'form': form})
@@ -73,5 +75,6 @@ def book_delete(request, pk):
     book = get_object_or_404(Book, pk=pk)
     if request.method == 'POST':
         book.delete()
+        messages.success(request, 'Book deleted successfully!')
         return redirect('book_list')
     return render(request, 'app/book/book_confirm_delete.html', {'book': book})
