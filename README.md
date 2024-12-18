@@ -34,7 +34,6 @@ Follow the steps below to set up the project on your local machine.
    git clone https://github.com/faizmohmmadR/book-mis.git
    ```
 
-Replace your username with your GitHub username.
 
 2. **Navigate into the project directory:**
 
