@@ -52,18 +52,17 @@ Replace your username with your GitHub username.
 
 4. **Activate the virtual environment:**
 
-On Windows:
+    On Windows
 
     ```bash
     venv\Scripts\activate
 
     ```
 
-On macOS/Linux:
+    On macOS/Linux
 
     ```bash
     source venv/bin/activate
-
     ```
 
 6. **Install the required dependencies:**
@@ -77,7 +76,7 @@ On macOS/Linux:
 
 1. **Apply migrations:**
 
-Run the following command to set up the database schema:
+    Run the following command to set up the database schema:
 
     ```bash 
     python manage.py migrate
@@ -86,7 +85,7 @@ Run the following command to set up the database schema:
 
 2. **Create a superuser (optional):**
 
-If you want to access the Django admin interface, create a superuser account:
+    If you want to access the Django admin interface, create a superuser account:
 
     ```bash
     python manage.py createsuperuser
@@ -95,7 +94,7 @@ If you want to access the Django admin interface, create a superuser account:
 
 ## Running the Server
 
-To start the development server, run the following command:
+    To start the development server, run the following command:
 
     ```bash
     python manage.py runserver
