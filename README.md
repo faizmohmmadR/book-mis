@@ -31,7 +31,7 @@ Follow the steps below to set up the project on your local machine.
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/book-management-system.git
+   git clone https://github.com/faizmohmmadR/book-mis.git
    ```
 
 Replace your username with your GitHub username.
